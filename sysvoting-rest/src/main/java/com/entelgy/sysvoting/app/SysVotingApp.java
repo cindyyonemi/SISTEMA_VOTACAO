@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.ws.rs.core.Application;
 
+import com.entelgy.sysvoting.rest.OptionRestService;
 import com.entelgy.sysvoting.rest.VotingRestService;
 
 /**
@@ -18,6 +19,7 @@ public class SysVotingApp extends Application {
 
 	public SysVotingApp() {
 		singletons.add(new VotingRestService());
+		singletons.add(new OptionRestService());
 	}
 
 	@Override
