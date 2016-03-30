@@ -11,13 +11,14 @@ angular.module('sysvotingApp.voting', ['ngRoute'])
 
 .controller('VotingController', VotingController);
 
-VotingController.$inject = ['VotingService', '$location'];
+VotingController.$inject = ['VotingService', '$location', '$captcha'];
 
-function VotingController(VotingService, $location) {
+function VotingController(VotingService, $location, $captcha) {
 	var vm = this;
 	vm.confirm = confirm;
 	vm.options = [];
 	vm.voting = {};
+	vm.resultado = undefined;
 	listOptions();
 	
 	function listOptions(){
@@ -30,11 +31,20 @@ function VotingController(VotingService, $location) {
 	}
 	
 	function confirm(){
-		VotingService.insert(vm.voting).
-		then(function successCallback(response){
-			$location.path('/receipt');
-		}, function errorCallback(response){
-			console.log(response);
-		});
+		
+		if($captcha.checkResult(vm.resultado) == true)
+		{
+		 	VotingService.insert(vm.voting).
+			then(function successCallback(response){
+				$location.path('/receipt');
+			}, function errorCallback(response){
+				console.log(response);
+			});
+		}
+		else
+		{
+			vm.resultado = undefined;
+		 	alert("Captcha Incorreto. Favor verifique o cálculo.");
+		}
 	}
 }

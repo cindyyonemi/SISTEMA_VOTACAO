@@ -1,12 +1,20 @@
-<div ng-controller="ReceiptController as vm" ng-cloak>
+<div ng-controller="ReceiptController as vm" ng-cloak 
+	layout-align="center center">
+	<md-whiteframe class="md-whiteframe-8dp" flex-sm="100" flex-gt-sm="100"
+			flex-gt-md="100" layout="column" layout-align="center center">
+	
+	<div layout="row" layout-sm="column" layout-align="center">
+		<h2 flex="100">Thank you for voting.</h2>
+	</div>
+	
 	<md-list-item class="md-2-line" ng-repeat="voting in vm.votings">
 		<md-progress-circular md-mode="determinate" value="{{voting.percentage}}"></md-progress-circular>
-		<div class="md-list-item-text"
+		<div class="md-list-item-text padding_left_8"
 			ng-class="{'md-offset': phone.options.offset }">
 			<h3>{{voting.option.name}}</h3>
-			<p>{{voting.percentage}}</p>
+			<p>{{voting.percentage}}%</p>
 		</div>
 	</md-list-item>
 	
-
+</md-whiteframe>
 </div>

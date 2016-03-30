@@ -17,12 +17,12 @@
         
         
         function listOptions() {
-			return $http.get("http://localhost:8080/sysvoting-rest/rest/option/options");
+			return $http.get("http://localhost:8080/sysvoting/rest/option/options");
 		}
         
         function insert(voting){
 			return $http({
-				url: 'http://localhost:8080/sysvoting-rest/rest/voting/insert',
+				url: 'http://localhost:8080/sysvoting/rest/voting/insert',
 				method: 'post',
 				data: voting
 			});

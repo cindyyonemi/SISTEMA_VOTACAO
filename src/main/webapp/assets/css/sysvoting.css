@@ -1,0 +1,10 @@
+.padding_left_8{
+	padding-left: 8px!important;
+}
+
+.inputdemoErrors {
+  min-height: 48px;
+  font-size: 0.8em;
+  text-align: left;
+  width: 100%; 
+  color: rgb(221,44,0);}

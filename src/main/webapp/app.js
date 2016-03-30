@@ -5,7 +5,9 @@ angular.module('sysvotingApp', [
   'ngRoute',
   'sysvotingApp.voting',
   'sysvotingApp.receipt',
-  'ngMaterial'
+  'ngMaterial',
+  'udpCaptcha',
+  'ngMessages'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/voting'});

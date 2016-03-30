@@ -1,25 +1,61 @@
-<div ng-controller="VotingController as vm" ng-cloak layout="column"
+
+<div ng-controller="VotingController as vm" ng-cloak
 	layout-align="center center">
-	<div ng-cloak layout="column">
-		<h2>Options List</h2>
-		<md-divider></md-divider>
-	</div>
-	<md-radio-group ng-model="vm.voting.option" ng-cloak layout="column">
-	<div ng-repeat='op in vm.options' class="row">
-		<div flex layout='row' layout-padding layout-align="start center">
-			<md-radio-button flex ng-value="op" class="md-primary">
-			{{op.name}} </md-radio-button>
-		</div>
-	</div>
-	</md-radio-group>
+	<form name="votingForm">
 
-	<div ng-cloak layout="column">
-		<md-divider></md-divider>
-	</div>
-	<div layout="row" layout-sm="column" layout-align="center">
-		<md-button ng-click="vm.confirm()" class="md-primary md-raised"
-			flex="100">CONFIRMAR</md-button>
-	</div>
-
-
+		<md-whiteframe class="md-whiteframe-8dp" flex-sm="100"
+			flex-gt-sm="100" flex-gt-md="100" layout="column"
+			layout-align="center center">
+			
+			<div ng-cloak layout="column">
+				<h2>Options List</h2>
+				<md-divider></md-divider>
+			</div>
+			
+			<md-radio-group ng-model="vm.voting.option" ng-cloak layout="column"
+				required="" name="option">
+				<div ng-repeat='op in vm.options' class="row">
+					<div flex layout='row' layout-padding layout-align="start center">
+						<md-radio-button flex ng-value="op" class="md-primary "
+							ng-model="required"> {{op.name}} </md-radio-button>
+					</div>
+				</div>
+				<div ng-messages="votingForm.option.$error">
+					<div ng-message="required" class="inputdemoErrors">*Selecione
+						uma opção.</div>
+				</div>
+			</md-radio-group>
+			
+			<div ng-cloak layout="column">
+				<md-divider></md-divider>
+			</div>
+		<md-input-container> 
+			<div layout="column" layout-sm="row" layout-align="center center">
+				<div>
+					<captcha field1="{{field1}}" operator="{{operator}}"
+						field2="{{field2}}"></captcha>
+					
+					<input ng-model="vm.resultado" size="30" required="" name="resultado" />
+					<div ng-messages="votingForm.resultado.$error">
+						<div ng-message="required" class="inputdemoErrors">*Informe o
+							resultado do cálculo.</div>
+					</div>
+				</div>
+			</div>
+			 </md-input-container>
+			
+			<div ng-cloak layout="column">
+				<md-divider></md-divider>
+			</div>
+			
+			<div layout="row" layout-sm="column" layout-align="center">
+				<md-button ng-click="vm.confirm()" class="md-primary md-raised"
+					ng-show="vm.voting.option!=null && vm.resultado!=null" flex="100">CONFIRMAR</md-button>
+			</div>
+			
+			<div ng-cloak layout="column">
+				<md-divider></md-divider>
+			</div>
+		</md-whiteframe>
+	</form>
 </div>

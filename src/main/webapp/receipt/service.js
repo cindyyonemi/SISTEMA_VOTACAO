@@ -16,7 +16,7 @@
         
         
         function listPartialPercentage() {
-			return $http.get("http://localhost:8080/sysvoting-rest/rest/voting/partialPercentage");
+			return $http.get("http://localhost:8080/sysvoting/rest/voting/partialPercentage");
 		}
         
     }
