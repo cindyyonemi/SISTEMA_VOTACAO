@@ -1,0 +1,12 @@
+<div ng-controller="ReceiptController as vm" ng-cloak>
+	<md-list-item class="md-2-line" ng-repeat="voting in vm.votings">
+		<md-progress-circular md-mode="determinate" value="{{voting.percentage}}"></md-progress-circular>
+		<div class="md-list-item-text"
+			ng-class="{'md-offset': phone.options.offset }">
+			<h3>{{voting.option.name}}</h3>
+			<p>{{voting.percentage}}</p>
+		</div>
+	</md-list-item>
+	
+
+</div>

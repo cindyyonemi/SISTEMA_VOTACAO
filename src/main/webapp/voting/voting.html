@@ -1,0 +1,25 @@
+<div ng-controller="VotingController as vm" ng-cloak layout="column"
+	layout-align="center center">
+	<div ng-cloak layout="column">
+		<h2>Options List</h2>
+		<md-divider></md-divider>
+	</div>
+	<md-radio-group ng-model="vm.voting.option" ng-cloak layout="column">
+	<div ng-repeat='op in vm.options' class="row">
+		<div flex layout='row' layout-padding layout-align="start center">
+			<md-radio-button flex ng-value="op" class="md-primary">
+			{{op.name}} </md-radio-button>
+		</div>
+	</div>
+	</md-radio-group>
+
+	<div ng-cloak layout="column">
+		<md-divider></md-divider>
+	</div>
+	<div layout="row" layout-sm="column" layout-align="center">
+		<md-button ng-click="vm.confirm()" class="md-primary md-raised"
+			flex="100">CONFIRMAR</md-button>
+	</div>
+
+
+</div>
