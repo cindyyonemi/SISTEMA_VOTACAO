@@ -5,9 +5,9 @@
     	.module('sysvotingApp')
         .factory('VotingService', VotingService);
 
-    VotingService.$inject = ['$http'];
+    VotingService.$inject = ['$http', '_const'];
 
-    function VotingService($http) {
+    function VotingService($http, _const) {
         var service = {
         	listOptions: listOptions,
         	insert: insert
@@ -17,12 +17,12 @@
         
         
         function listOptions() {
-			return $http.get("http://localhost:8080/sysvoting/rest/option/options");
+			return $http.get(_const.LIST_OPTIONS);
 		}
         
         function insert(voting){
 			return $http({
-				url: 'http://localhost:8080/sysvoting/rest/voting/insert',
+				url: _const.INSERT_VOTING,
 				method: 'post',
 				data: voting
 			});

@@ -12,7 +12,7 @@ import com.entelgy.sysvoting.business.OptionService;
 import com.entelgy.sysvoting.business.generic.GenericCrudService;
 import com.entelgy.sysvoting.entity.Option;
 import com.entelgy.sysvoting.entity.common.BusinessException;
-import com.entelgy.sysvoting.rest.generic.GenericCrudRestService;
+import com.entelgy.sysvoting.rest.generic.GenericBaseCrudRestService;
 
 /**
  * Class for create end-point Option .
@@ -21,7 +21,7 @@ import com.entelgy.sysvoting.rest.generic.GenericCrudRestService;
  */
 @RestController
 @RequestMapping("/option")
-public class OptionRestService extends GenericCrudRestService<Option, Long>{
+public class OptionRestService extends GenericBaseCrudRestService<Option, Long>{
 	
 	@Autowired
 	private OptionService optionService;

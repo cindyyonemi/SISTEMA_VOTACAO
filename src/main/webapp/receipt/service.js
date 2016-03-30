@@ -5,9 +5,9 @@
     	.module('sysvotingApp')
         .factory('ReceiptService', ReceiptService);
 
-    ReceiptService.$inject = ['$http'];
+    ReceiptService.$inject = ['$http', '_const'];
 
-    function ReceiptService($http) {
+    function ReceiptService($http, _const) {
         var service = {
         		listPartialPercentage: listPartialPercentage
         	
@@ -16,7 +16,7 @@
         
         
         function listPartialPercentage() {
-			return $http.get("http://localhost:8080/sysvoting/rest/voting/partialPercentage");
+			return $http.get(_const.LIST_PARTIAL_PERCENTAGE);
 		}
         
     }

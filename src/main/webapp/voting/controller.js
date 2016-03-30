@@ -11,9 +11,9 @@ angular.module('sysvotingApp.voting', ['ngRoute'])
 
 .controller('VotingController', VotingController);
 
-VotingController.$inject = ['VotingService', '$location', '$captcha'];
+VotingController.$inject = ['VotingService', '$location', '$captcha', '_msg'];
 
-function VotingController(VotingService, $location, $captcha) {
+function VotingController(VotingService, $location, $captcha, _msg) {
 	var vm = this;
 	vm.confirm = confirm;
 	vm.options = [];
@@ -44,7 +44,7 @@ function VotingController(VotingService, $location, $captcha) {
 		else
 		{
 			vm.resultado = undefined;
-		 	alert("Captcha Incorreto. Favor verifique o cálculo.");
+		 	alert(_msg.ERRO_VALIDATION_CAPTCHA);
 		}
 	}
 }

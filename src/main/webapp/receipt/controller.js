@@ -16,8 +16,7 @@ ReceiptController.$inject = ['ReceiptService'];
 function ReceiptController(ReceiptService) {
 	var vm = this;
 	vm.votings = [];
-	listPartialPercentage()
-//	vm.listPartialPercentage = listPartialPercentage;
+	listPartialPercentage();
 	
 	function listPartialPercentage(){
 		ReceiptService.listPartialPercentage().

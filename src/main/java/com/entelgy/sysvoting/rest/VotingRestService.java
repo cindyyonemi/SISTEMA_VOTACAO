@@ -2,10 +2,7 @@ package com.entelgy.sysvoting.rest;
 
 import java.util.List;
 
-import javax.ws.rs.core.Response;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,7 +13,7 @@ import com.entelgy.sysvoting.business.VotingService;
 import com.entelgy.sysvoting.business.generic.GenericCrudService;
 import com.entelgy.sysvoting.entity.Voting;
 import com.entelgy.sysvoting.entity.common.BusinessException;
-import com.entelgy.sysvoting.rest.generic.GenericCrudRestService;
+import com.entelgy.sysvoting.rest.generic.GenericBaseCrudRestService;
 
 /**
  * Class for create end-point Voting.
@@ -25,7 +22,7 @@ import com.entelgy.sysvoting.rest.generic.GenericCrudRestService;
  */
 @RestController
 @RequestMapping("/voting")
-public class VotingRestService extends GenericCrudRestService<Voting, Long>{
+public class VotingRestService extends GenericBaseCrudRestService<Voting, Long>{
 	
 	@Autowired
 	private VotingService votingService;
