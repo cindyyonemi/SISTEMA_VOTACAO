@@ -7,7 +7,7 @@ import com.entelgy.sysvoting.repository.OptionRepository;
 import com.entelgy.sysvoting.repository.jpa.generic.GenericRepositoryJpa;
 
 /**
- * The StudentRepositoryJpa class provides the persistence operations of entity option
+ * The OptionRepositoryJpa class provides the persistence operations of entity option
  * 
  */
 @Repository("optionRepositoryJpa")
